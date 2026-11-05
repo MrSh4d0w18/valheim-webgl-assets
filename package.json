@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0",
+  "name": "valheim-webgl",
+  "scripts": {
+    "build": "node tools/fetch-game.mjs",
+    "start": "node tools/serve.mjs"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "private": true
+}

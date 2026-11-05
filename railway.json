@@ -1,0 +1,10 @@
+﻿{
+    "deploy":  {
+                   "restartPolicyType":  "ON_FAILURE",
+                   "startCommand":  "node tools/serve.mjs",
+                   "healthcheckPath":  "/unity-game/index.html"
+               },
+    "build":  {
+                  "builder":  "DOCKERFILE"
+              }
+}
