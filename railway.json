@@ -1,4 +1,4 @@
-﻿{
+{
     "deploy":  {
                    "restartPolicyType":  "ON_FAILURE",
                    "startCommand":  "node tools/serve.mjs",
