@@ -112,6 +112,69 @@ function send(req, res, file) {
   return true;
 }
 
+// The WebGL data blob is committed as three sub-100 MB parts (GitHub rejects
+// the single ~193 MB file). Serve a virtual concatenated file with byte-range
+// support so Unity can stream it without the image having to unzip anything.
+const DATA_URL = "/unity-game/Build/WebGLMenu.data.unityweb";
+const PART_DIR = path.join(ROOT, "v12");
+const PART_FILES = ["part1.bin", "part2.bin", "part3.bin"].map(name => {
+  const file = path.join(PART_DIR, name);
+  return { file, size: fs.statSync(file).size };
+});
+const DATA_SIZE = PART_FILES.reduce((sum, part) => sum + part.size, 0);
+
+async function pipeRange(res, start, end) {
+  let base = 0;
+  for (const part of PART_FILES) {
+    const partEnd = base + part.size - 1;
+    if (end >= base && start <= partEnd) {
+      const localStart = Math.max(start, base) - base;
+      const localEnd = Math.min(end, partEnd) - base;
+      const stream = fs.createReadStream(part.file, { start: localStart, end: localEnd });
+      for await (const chunk of stream) {
+        if (!res.write(chunk)) await new Promise(resolve => res.once("drain", resolve));
+      }
+    }
+    base = partEnd + 1;
+  }
+  res.end();
+}
+
+function sendData(req, res) {
+  res.setHeader("accept-ranges", "bytes");
+  res.setHeader("cache-control", "no-cache");
+  res.setHeader("content-type", "application/octet-stream");
+
+  let start = 0;
+  let end = DATA_SIZE - 1;
+  const range = req.headers.range;
+  if (range) {
+    const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+    if (match) {
+      start = match[1] ? Number(match[1]) : 0;
+      end = match[2] ? Number(match[2]) : DATA_SIZE - 1;
+    }
+  }
+  if (start < 0 || end >= DATA_SIZE || start > end) {
+    res.writeHead(416, { "content-range": `bytes */${DATA_SIZE}` }).end();
+    return;
+  }
+
+  const partial = Boolean(range);
+  const headers = {
+    "content-length": end - start + 1,
+  };
+  if (partial) headers["content-range"] = `bytes ${start}-${end}/${DATA_SIZE}`;
+  res.writeHead(partial ? 206 : 200, headers);
+  if (req.method === "HEAD") {
+    res.end();
+    return;
+  }
+  pipeRange(res, start, end).catch(() => {
+    if (!res.writableEnded) res.destroy();
+  });
+}
+
 const server = http.createServer((req, res) => {
   res.setHeader("cross-origin-opener-policy", "same-origin");
   res.setHeader("cross-origin-embedder-policy", "require-corp");
@@ -148,6 +211,11 @@ const server = http.createServer((req, res) => {
   if (url === "/api/health") {
     res.writeHead(200, { "content-type": "application/json" });
     res.end(JSON.stringify({ ok: true, root: "public", offline: true }));
+    return;
+  }
+
+  if (url === DATA_URL && (req.method === "GET" || req.method === "HEAD")) {
+    sendData(req, res);
     return;
   }
 
