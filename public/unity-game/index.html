@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
@@ -124,7 +124,7 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => { window.unityInstance = unityInstance;
+              }).then((unityInstance) => {
                 document.querySelector("#unity-loading-bar").style.display = "none";
                 document.getElementById("diagnostics-icon").onclick = () => {
                   unityDiagnostics.openDiagnosticsDiv(unityInstance.GetMetricsInfo);
