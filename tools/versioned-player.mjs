@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { createNativeMediaHandler } from './native-media.mjs';
 
@@ -26,8 +27,16 @@ export function createVersionedPlayerHandler(root) {
     if (offset !== manifest.bytes || new Set(manifest.parts.map(p => p.path)).size !== parts.length)
       throw new Error('Versioned data length/part collision');
     const prefix = `/unity-game/${entry.name}/`;
-    const localMediaRoot = path.join(base, 'media');
+    const mediaVersion = manifest.mediaVersion ?? entry.name;
+    if (!/^v[1-9][0-9]*$/.test(mediaVersion) ||
+        (manifest.mediaVersion !== undefined && !/^[a-f0-9]{64}$/.test(manifest.mediaManifestSha256)))
+      throw new Error('Invalid shared media version/manifest pin');
+    const localMediaRoot = path.resolve(directory, mediaVersion, 'media');
+    if (!localMediaRoot.startsWith(path.resolve(directory) + path.sep)) throw new Error('Shared media root escaped versions');
     const localMediaManifest = path.join(localMediaRoot, 'media-manifest.json');
+    if (manifest.mediaVersion !== undefined && (!fs.existsSync(localMediaManifest) ||
+        createHash('sha256').update(fs.readFileSync(localMediaManifest)).digest('hex') !== manifest.mediaManifestSha256))
+      throw new Error('Shared media manifest differs from pinned package');
     const localMedia = fs.existsSync(localMediaManifest) ? createNativeMediaHandler(localMediaManifest, localMediaRoot, prefix) : null;
     const externalMediaRoot = process.env.NATIVE_MEDIA_ROOT ? path.resolve(process.env.NATIVE_MEDIA_ROOT) : null;
     const externalMediaManifest = externalMediaRoot ? path.join(externalMediaRoot, 'media-manifest.json') : null;

@@ -1,0 +1,13 @@
+{
+  "version": "v76",
+  "experimental": true,
+  "worldEntryBlocked": true,
+  "nativeReadiness": false,
+  "startupIntroPackaged": true,
+  "otherCinematicsMayBeUnavailable": true,
+  "textAndFontsMayBeIncomplete": true,
+  "browserPlaybackVerified": false,
+  "originalVersionUrl": "/unity-game/",
+  "sourceDescriptorSha256": "f787de43b68d801f0458d0776e10fdb11391a5ec258cacbfcdfbdcfc193a7f05",
+  "buildGuid": "d2d78635b72143a8937c4dc11f249b4a"
+}

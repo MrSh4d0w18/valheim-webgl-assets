@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "version": "v76",
+  "bytes": 341183659,
+  "sha256": "3632d3dba6780b5504f89a6dce8a3efa7f8ce60346dc3cd41fb2f154f5f62a8e",
+  "parts": [
+    {
+      "path": "data/part0000.bin",
+      "bytes": 73400320,
+      "sha256": "db8cdf96b46ea4067cc2d774d521738a6f62f58353990440a330f28a04993954"
+    },
+    {
+      "path": "data/part0001.bin",
+      "bytes": 73400320,
+      "sha256": "c39690d229485c112c74c7ada1012f3a53e118a0cd88ad09d9f0b1726a245776"
+    },
+    {
+      "path": "data/part0002.bin",
+      "bytes": 73400320,
+      "sha256": "88cc02e21703bf9a6e52ed7d7d124a3c7389f169ecccdce912589cba5e7252c4"
+    },
+    {
+      "path": "data/part0003.bin",
+      "bytes": 73400320,
+      "sha256": "b55d583649a1df51465d1f45b3e5d8df9db87185742c192d1342a711f90560f0"
+    },
+    {
+      "path": "data/part0004.bin",
+      "bytes": 47582379,
+      "sha256": "7a4f54de5e6b09ec2500353b99977e766b265854ee0c388125407a0ded6beed7"
+    }
+  ],
+  "experimental": true,
+  "nativeReadiness": false,
+  "mediaVersion": "v75",
+  "mediaManifestSha256": "69700164f5de21419fdafbf8a762197e7f2bf49c330e0ba6e2ca506b33feca9a"
+}
