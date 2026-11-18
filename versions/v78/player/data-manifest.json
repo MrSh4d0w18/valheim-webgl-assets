@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "version": "v78",
+  "bytes": 501197379,
+  "sha256": "d717d3f04ab91673ce4a4e189bfad894205a29f3836dc6303c26b8b97283256c",
+  "parts": [
+    {
+      "path": "data/part0000.bin",
+      "bytes": 73400320,
+      "sha256": "85cbde7f7d2dd20a7b190bb2805a123df096eed92470730652c171b01488ad20"
+    },
+    {
+      "path": "data/part0001.bin",
+      "bytes": 73400320,
+      "sha256": "942957cd70fe6f8182a9d6605f919690fa53f8945eb86a85f0be8d88f1d70857"
+    },
+    {
+      "path": "data/part0002.bin",
+      "bytes": 73400320,
+      "sha256": "8cf69a4cd5d714ded51b7f7a041d9e864d0e2126022e93a25560856cceb8d4bd"
+    },
+    {
+      "path": "data/part0003.bin",
+      "bytes": 73400320,
+      "sha256": "cfa842a3cc85739a7376fa53410e0b422df9b04bb7d31fc85e3a84e77d441b8e"
+    },
+    {
+      "path": "data/part0004.bin",
+      "bytes": 73400320,
+      "sha256": "6876d469b768e0914ca629efeba67aa56fde4078e6dc484cb71370de66953b36"
+    },
+    {
+      "path": "data/part0005.bin",
+      "bytes": 73400320,
+      "sha256": "8c84c66f4b16d89e996a870ca33881fb280a4fd622a76954f2450e0ef5cc0d09"
+    },
+    {
+      "path": "data/part0006.bin",
+      "bytes": 60795459,
+      "sha256": "33aefe7a6fdd2bf1ba62886dd6db45f29cfde8b02e799ceebb9ccfea18770275"
+    }
+  ],
+  "experimental": true,
+  "nativeReadiness": false,
+  "mediaVersion": "v75",
+  "mediaManifestSha256": "69700164f5de21419fdafbf8a762197e7f2bf49c330e0ba6e2ca506b33feca9a"
+}
