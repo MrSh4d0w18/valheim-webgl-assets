@@ -1,0 +1,16 @@
+{
+  "version": "v77",
+  "experimental": true,
+  "worldEntryBlocked": true,
+  "nativeReadiness": false,
+  "startupIntroPackaged": true,
+  "otherCinematicsMayBeUnavailable": true,
+  "textAndFontsMayBeIncomplete": true,
+  "browserPlaybackVerified": false,
+  "originalVersionUrl": "/unity-game/",
+  "sourceDescriptorSha256": "59b0276d51f188a75b0cde14912041fa43ffa0f6f56265b43da797f393151eea",
+  "buildGuid": "ac524a3fb41f4866acbf5a9d6aa08728",
+  "videoDiagnosticsAvailable": true,
+  "videoDiagnosticsOptInParameter": "video_diagnostics=1",
+  "cinematicTimingFixClaimed": false
+}
