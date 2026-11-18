@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "version": "v75",
+  "bytes": 341185342,
+  "sha256": "276c4a867b71e2ae68228889ac303d9a1265b324e6b2e02b4f177c4514a7787b",
+  "parts": [
+    {
+      "path": "data/part0000.bin",
+      "bytes": 73400320,
+      "sha256": "9016b8b4eb42ff00dfac1ef4eae4237f6fcab50091fadf2b7e47c1b2758ff11e"
+    },
+    {
+      "path": "data/part0001.bin",
+      "bytes": 73400320,
+      "sha256": "7a3aca8167241a385c92ef7ca1698f982196367bb26795430e9709a1da0e613d"
+    },
+    {
+      "path": "data/part0002.bin",
+      "bytes": 73400320,
+      "sha256": "23cb88ce9d31fd9d730149c0ac454f11486876a668fa617bcaa2c3d369dc3d5b"
+    },
+    {
+      "path": "data/part0003.bin",
+      "bytes": 73400320,
+      "sha256": "87bce2d8f56a518fc6b95e5d0a8e3f49e953141b40503fe6fa6caaaf3703bce8"
+    },
+    {
+      "path": "data/part0004.bin",
+      "bytes": 47584062,
+      "sha256": "e6c30cdc1dae32378a587f3941e83de6cde93292b16cd3ae6bf430cbe8801a8f"
+    }
+  ],
+  "experimental": true,
+  "nativeReadiness": false
+}

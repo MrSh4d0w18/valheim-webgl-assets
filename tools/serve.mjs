@@ -14,6 +14,7 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createVersionedPlayerHandler } from "./versioned-player.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLIC = path.join(ROOT, "public");
@@ -175,6 +176,8 @@ function sendData(req, res) {
   });
 }
 
+const versionedPlayer = createVersionedPlayerHandler(ROOT);
+
 const server = http.createServer((req, res) => {
   res.setHeader("cross-origin-opener-policy", "same-origin");
   res.setHeader("cross-origin-embedder-policy", "require-corp");
@@ -207,6 +210,8 @@ const server = http.createServer((req, res) => {
       "base-uri 'none'; frame-ancestors 'none'",
     );
   }
+
+  if (versionedPlayer(req, res)) return;
 
   if (url === "/api/health") {
     res.writeHead(200, { "content-type": "application/json" });

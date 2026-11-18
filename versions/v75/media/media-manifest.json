@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "nativeBundleSha256": "b9ac452478a5ed05051d08e4406db8ca9babc44c9b427d256baa8c629b062c0c",
+  "videos": [
+    {
+      "relativeUrl": "Cinematics/a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/intro.mp4",
+      "bytes": 432771724,
+      "sha256": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d",
+      "parts": [
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0000.bin",
+          "bytes": 73400320,
+          "sha256": "0940cc372e199bc8ea6ba10194e3384ea1db3fd1a8c0db819b52a70ffcb34f4d"
+        },
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0001.bin",
+          "bytes": 73400320,
+          "sha256": "46fe92488d44375140796e9ef50b05e3551ce46c7de9fb0e03ac1afea366c0ae"
+        },
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0002.bin",
+          "bytes": 73400320,
+          "sha256": "9a6e96dd9517d337c24111f61b1d59d958c13ed3bfbed67ad50a2085d551e24b"
+        },
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0003.bin",
+          "bytes": 73400320,
+          "sha256": "0f037624ae9bd8cc3074106c3a1ba6b4446580c6593fd5a5bf03c8983c49dfdf"
+        },
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0004.bin",
+          "bytes": 73400320,
+          "sha256": "19867ff129c8a7f3fced9235f918187f500dc8accfbe73253e92196f65624fdd"
+        },
+        {
+          "path": "a9370df9d9a7fb61e544a0b602286d436e52a891434b65285342310e61f20d8d/part0005.bin",
+          "bytes": 65770124,
+          "sha256": "bce397604051177dacdc5ac9f62c6bc8e5a946f1f494a028b231f3965c3decf6"
+        }
+      ]
+    }
+  ]
+}
